@@ -9,46 +9,73 @@ def choose():
 def jumble(word):
     jumbled =join(random.sample(word,len(word)))
     return jumbled
+
+
 def play():
-    p1=input("PLAYER 1 , ENTER YOUR NAME")
-    p2 = input("PLAYER 2 , ENTER YOUR NAME")
-    point1=0
-    point2=0
-    turn=0
-    while(1):
-        #computers task
-        picked_word = choose()
-        #creat the question
-        qn = jumble(picked_word)
-        print(qn)
-        if turn %2 == 0:
-            print("Player 1, ",p1,' this is your turn')
-            ans = input('What is on my mind? - ')
-            if ans == picked_word:
-                point1  +=1
-                print('Congragulation ')
+    no = int(input("HOW MANY PLAYER NEED TO PLAY 1/2"))
+    if no == 2:
+        p1 = input("PLAYER 1 , ENTER YOUR NAME")
+        p2 = input("PLAYER 2 , ENTER YOUR NAME")
+        point1 = 0
+        point2 = 0
+        turn = 0
+        while (1):
+            # computers task
+            picked_word = choose()
+            # creat the question
+            qn = jumble(picked_word)
 
-            else:
-                print('Ohh no the correct word was',picked_word)
-            c = int(input("PRESS 1 TO CONTINUE AND 0 TO QUIT"))
-            if c == 0:
-                print('Thank you for playing \n', p1, '-', point1, '\n', p2, '-', point2)
-                break
-        else:
-            print("Player 2, ",p2,' this is your turn')
-            ans = input('What is on my mind? - ')
-            if ans == picked_word:
-                point2 +=1
-                print('Congragulation ')
-            else:
-                print('Ohh no the correct word was',picked_word)
-            c = int(input("PRESS 1 TO CONTINUE AND 0 TO QUIT"))
-            if c == 0:
-                    print('Thank you for playing \n',p1,'-',point1,'\n',p2,'-',point2)
+            if turn % 2 == 0:
+                print("Player 1, ", p1, ' this is your turn')
+                print(f"YOUR QUESTION IS({qn})")
+                ans = input('What is on my mind? - ')
+                if ans == picked_word:
+                    point1 += 1
+                    print('Congragulation ')
+
+                else:
+                    print('Ohh no the correct word was', picked_word)
+                c = int(input("PRESS 1 TO CONTINUE AND 0 TO QUIT"))
+                if c == 0:
+                    print('Thank you for playing \n', p1, '-', point1, '\n', p2, '-', point2)
                     break
-        turn = turn + 1
+            else:
+                print("Player 2, ", p2, ' this is your turn')
+                print(f"YOUR QUESTION IS({qn})")
+                ans = input('What is on my mind? - ')
+                if ans == picked_word:
+                    point2 += 1
+                    print('Congragulation ')
+                else:
+                    print('Ohh no the correct word was', picked_word)
+                c = int(input("PRESS 1 TO CONTINUE AND 0 TO QUIT"))
+                if c == 0:
+                    print('Thank you for playing \n', p1, '-', point1, '\n', p2, '-', point2)
+                    break
+            turn = turn + 1
+    if no==1:
+        p1 = input("PLAYER  , ENTER YOUR NAME")
+        point1 = 0
+        turn = 0
+        while (1):
+            # computers task
+            picked_word = choose()
+            # creat the question
+            qn = jumble(picked_word)
+            if turn % 2 == 0:
+                print("Player , ",p1, ' this is your turn')
+                print(f"YOUR QUESTION IS({qn})")
+                ans = input('What is on my mind? - ')
+                if ans == picked_word:
+                    point1 += 1
+                    print('Congragulation ')
+                else:
+                    print('Ohh no the correct word was', picked_word)
+                c = int(input("PRESS 1 TO CONTINUE AND 0 TO QUIT"))
+                if c == 0:
+                    print('Thank you for playing \n', p1, '-', point1)
+                    break
 
-
+# TO PLAY WE CALL THE FUNCTION
 play()
-
 
